@@ -1,10 +1,8 @@
 ## Laravel
 
-### Eloquent
+## Eloquent
 
-## Contents
-
-[push](#eloquent-push)
+[Push](#eloquent-push)
 
 ### **Eloquent Push**
 
@@ -21,7 +19,7 @@ Save the product and its relations
     $product->push();
 ```
 
-[🔝 Back to contents](#contents)
+[🔝 Back to contents](#eloquent)
 
 
 
