@@ -1,3 +1,7 @@
+# PHP
+## Contents
+[Get class methods](#get-class-methods) 
+
 # Laravel
 
 ## Eloquent
@@ -5,6 +9,12 @@
 [Push](#push)
 
 [Sensitive Data](#sensitive-data) #crypt #cast #attribute
+
+### **Get class methods**
+
+```php
+get_class_methods(mixed $class_name): array
+```
 
 ### **Push**
 
