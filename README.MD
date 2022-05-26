@@ -1,10 +1,10 @@
-## Laravel
+# Laravel
 
 ## Eloquent
 
-[Push](#eloquent-push)
+[Push](#push)
 
-### **Eloquent Push**
+### **Push**
 
 Save the product and its relations
 
