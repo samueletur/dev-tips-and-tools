@@ -12,6 +12,8 @@
 
 [Sensitive Data](#sensitive-data) `#crypt` `#cast` `#attribute`
 
+[whereBelongsTo](#whereBelongsTo)
+
 ### **allRelatedIds**
 
 An alternative to pluck('id'') to get all of the IDs for the related models.
@@ -75,5 +77,17 @@ class Client extends Model
 
 [🔝 Back to eloquent](#eloquent)
 
+### **whereBelongsTo**
 
+Get relationship without use where on query
+
+```php
+// instead of
+Order::where('user_id',$user->id)->sum('total_amount');
+
+// you can use
+Order::whereBelongsTo($user)->sum('total_amount');
+```
+
+[🔝 Back to eloquent](#eloquent)
 
