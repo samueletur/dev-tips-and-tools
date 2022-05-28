@@ -23,6 +23,8 @@ mkfile 10m testfile.pdf
 
 [whereBelongsTo](#whereBelongsTo)
 
+[whereBetween with dates](#wherebetween-with-dates) use whereBetween with a range date. If you need to provide fallback you can do so with the nullish coalescing operator ??
+
 ### **allRelatedIds**
 
 An alternative to pluck('id'') to get all of the IDs for the related models.
@@ -89,6 +91,19 @@ Order::where('user_id',$user->id)->sum('total_amount');
 
 // you can use
 Order::whereBelongsTo($user)->sum('total_amount');
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **wherebetween with dates**
+
+How to retrieve records between two timestamps in Laravel 🗓  Use whereBetween with a from and to date. If you need to provide fallback you can do so with the nullish coalescing operator
+
+```php
+Post::whereBetween('publish_at', [
+    $request->from ?? '1970-01-01',
+    $request->to ?? today()->toDateTimeString()
+])->get();
 ```
 
 [🔝 Back to eloquent](#eloquent)
