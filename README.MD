@@ -1,6 +1,15 @@
-# PHP
+# MAC
 
-[Get class methods](#get-class-methods) 
+[Create fake file size](#create-fake-file-size) 
+
+### **Create fake file size**
+
+```php
+// MacOs snippet to fake a 10MB PDF file
+mkfile 10m testfile.pdf
+```
+
+[🔝 Back to php](#php)
 
 # Laravel
 
@@ -27,13 +36,6 @@ $article->tags()->allRelatedIds()->toArray();
 ```
 
 [🔝 Back to eloquent](#eloquent)
-
-### **Get class methods**
-
-```php
-get_class_methods(mixed $class_name): array
-```
-[🔝 Back to php](#php)
 
 ### **Push**
 
@@ -91,3 +93,14 @@ Order::whereBelongsTo($user)->sum('total_amount');
 
 [🔝 Back to eloquent](#eloquent)
 
+
+# PHP
+
+[Get class methods](#get-class-methods) 
+
+### **Get class methods**
+
+```php
+get_class_methods(mixed $class_name): array
+```
+[🔝 Back to php](#php)
