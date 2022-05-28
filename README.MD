@@ -1,20 +1,37 @@
 # PHP
-## Contents
+
 [Get class methods](#get-class-methods) 
 
 # Laravel
 
 ## Eloquent
 
+[allRelatedIds](#allRelatedIds)
+
 [Push](#push)
 
-[Sensitive Data](#sensitive-data) #crypt #cast #attribute
+[Sensitive Data](#sensitive-data) `#crypt` `#cast` `#attribute`
+
+### **allRelatedIds**
+
+An alternative to pluck('id'') to get all of the IDs for the related models.
+
+```php
+// instead of
+$article->tags()->pluck('id')->toArray();
+
+// you can use
+$article->tags()->allRelatedIds()->toArray();
+```
+
+[🔝 Back to eloquent](#eloquent)
 
 ### **Get class methods**
 
 ```php
 get_class_methods(mixed $class_name): array
 ```
+[🔝 Back to php](#php)
 
 ### **Push**
 
@@ -31,7 +48,7 @@ $product->department->name = 'Men';
 $product->push();
 ```
 
-[🔝 Back to contents](#eloquent)
+[🔝 Back to eloquent](#eloquent)
 
 ### **Sensitive Data**
 
@@ -56,7 +73,7 @@ class Client extends Model
 }
 ```
 
-[🔝 Back to contents](#eloquent)
+[🔝 Back to eloquent](#eloquent)
 
 
 
