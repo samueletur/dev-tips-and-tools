@@ -19,6 +19,8 @@ mkfile 10m testfile.pdf
 
 [Push](#push)
 
+[Relationships - Querying existence of relationships](#relationships-querying-existence)
+
 [SelectRaw](#selectraw)
 
 [Sensitive Data](#sensitive-data) `#crypt` `#cast` `#attribute`
@@ -56,6 +58,46 @@ $product->department->name = 'Men';
 
 // Save the product and its relations
 $product->push();
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **Relationships Querying Existence**
+
+Querying existence of relationships when retrieving models in Laravel: 
+
+```php
+// Retrieve all posts that have at the least on comment ...
+$posts = Post::has('comments')->get();
+
+// Retrieve all posts that have three or more comments ...
+$posts = Post::has('comments','>=',3)->get();
+
+// Retrieve all posts that have at least one comment with images ...
+$posts = Post::has('comments.images')->get();
+
+// Retrieve posts with at least one comment containing words like code% ...
+$posts = Post::whereHas('comments',function(Builder $qry){
+    $qry->where('content','like','code%');
+})->get();
+
+// Retrieve posts with at least ten comments containing words like code% ...
+$posts = Post::whereHas('comments',function(Builder $qry){
+    $qry->where('content','like','code%');
+}, '>=', '10')->get();
+
+// Alternatively, query with a single, simple where condition attached to the relationship query
+$posts = Post::whereRelation('comments', 'is_approved', false)->get();
+$posts = Post::whereRelation(
+    'comments', 'created_at', '>=', now()->subHour()
+)->get();
+
+// Querying a relationship absense
+$posts = Post::doesntHave('comments')->get();
+$posts = Post::whereDoesntHave('comments', function (Builder $qry) {
+    $qry->where('content','like','code%');
+})->get();
+
 ```
 
 [🔝 Back to eloquent](#eloquent)
