@@ -19,6 +19,8 @@ mkfile 10m testfile.pdf
 
 [Push](#push)
 
+[SelectRaw](#selectraw)
+
 [Sensitive Data](#sensitive-data) `#crypt` `#cast` `#attribute`
 
 [when for conditionally situations](#when-for-conditionally-situations) `#when`
@@ -54,6 +56,26 @@ $product->department->name = 'Men';
 
 // Save the product and its relations
 $product->push();
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **SelectRaw**
+
+Count and show reviews table using the db server to process
+
+```php
+Product::query()
+    ->where('product_id',1)
+    ->reviews()
+    ->selectRaw('
+        count(case when rating = 1 then 1 end) as one_star,
+        count(case when rating = 2 then 1 end) as two_star,
+        count(case when rating = 3 then 1 end) as three_star,
+        count(case when rating = 4 then 1 end) as four_star,
+        count(case when rating = 5 then 1 end) as five_star,
+    ')
+    ->first();
 ```
 
 [🔝 Back to eloquent](#eloquent)
