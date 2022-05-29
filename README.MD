@@ -21,9 +21,11 @@ mkfile 10m testfile.pdf
 
 [Sensitive Data](#sensitive-data) `#crypt` `#cast` `#attribute`
 
+[when for conditionally situations](#when-for-conditionally-situations) `#when`
+
 [whereBelongsTo](#whereBelongsTo)
 
-[whereBetween with dates](#wherebetween-with-dates) use whereBetween with a range date. If you need to provide fallback you can do so with the nullish coalescing operator ??
+[whereBetween with dates](#wherebetween-with-dates) use whereBetween with a range date. If you need to provide fallback you can do so with the nullish coalescing operator ?? `#whereBetween` `#date`
 
 ### **allRelatedIds**
 
@@ -77,6 +79,28 @@ class Client extends Model
         );
     }
 }
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **When for conditionally situations**
+
+For situations where you need to conditionally build up a database query e.g. if published = true, then add a WHERE statement… make use of the ‘when’ method directly on the query builder. It’s great for keeping things neat and chained.
+
+```php
+
+// instead of
+$query = Article::query();
+
+if($published)
+    $query = $query->where('published',true);
+
+return $query->get();
+
+// you can use
+    return Article::query()
+        ->when($published, fn($query) => $query->where('published',true))
+        ->get();
 ```
 
 [🔝 Back to eloquent](#eloquent)
