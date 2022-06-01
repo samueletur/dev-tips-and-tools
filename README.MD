@@ -19,9 +19,9 @@ mkfile 10m testfile.pdf
 
 [Push](#push)
 
-[Relationships - Querying existence of relationships](#relationships-querying-existence)
+[Relationships - Querying existence of relationships](#relationships-querying-existence) `#mysql` `#whereHas` `#has` `#relationship`
 
-[SelectRaw](#selectraw)
+[SelectRaw](#selectraw) `#mysql` `#selectRaw` `#query`
 
 [Sensitive Data](#sensitive-data) `#crypt` `#cast` `#attribute`
 
@@ -30,6 +30,8 @@ mkfile 10m testfile.pdf
 [whereBelongsTo](#whereBelongsTo)
 
 [whereBetween with dates](#wherebetween-with-dates) use whereBetween with a range date. If you need to provide fallback you can do so with the nullish coalescing operator ?? `#whereBetween` `#date`
+
+[with - cheat sheet](#with_cheat_sheet) #with #without
 
 ### **allRelatedIds**
 
@@ -192,6 +194,44 @@ Post::whereBetween('publish_at', [
     $request->from ?? '1970-01-01',
     $request->to ?? today()->toDateTimeString()
 ])->get();
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **with - cheat sheet**
+
+```php
+// Eager loads the 'author' relationship in the Book model
+$books = Book::with('author')->get();
+
+// Eager loads the 'author' and 'publisher' relationships in the Book model
+$books = Book::with(['author','publisher'])->get();
+
+// Eager loads the 'author' relationship in the Book model 
+// and the 'contacts' relationship in the Author model
+$books = Book::with('author.contacts')->get();
+
+// Eager loads the 'author' relationship in the Book model 
+// with only the columns 'id' and 'name'
+$books = Book::with('author:id,name')->get();
+
+// Eager loads by default the 'author' relationship 
+class Book extends Model 
+{
+    protected $with = ['author'];
+}
+
+// You can disable default relationships with "without"
+$books = Book::without('author')->get();
+
+// Overwrite the $with property for a single query
+$books = Book::withOnly('genre')->get();
+
+// Eager loads with constraints.
+// Only eager loads only the author that have the name begining with "Samuel"
+$books = Book::with(['author' => function($query) {
+    $query->where('name','like','Samuel%');
+}])->get();
 ```
 
 [🔝 Back to eloquent](#eloquent)
