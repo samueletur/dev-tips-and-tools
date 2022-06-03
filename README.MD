@@ -17,6 +17,8 @@ mkfile 10m testfile.pdf
 
 [allRelatedIds](#allRelatedIds)
 
+[isDirty and isClean](#isDirty-and-isClean)
+
 [Push](#push)
 
 [Relationships - Querying existence of relationships](#relationships-querying-existence) `#mysql` `#whereHas` `#has` `#relationship`
@@ -25,13 +27,15 @@ mkfile 10m testfile.pdf
 
 [Sensitive Data](#sensitive-data) `#crypt` `#cast` `#attribute`
 
+[wasChanged](#wasChanged)
+
 [when for conditionally situations](#when-for-conditionally-situations) `#when`
 
 [whereBelongsTo](#whereBelongsTo)
 
 [whereBetween with dates](#wherebetween-with-dates) use whereBetween with a range date. If you need to provide fallback you can do so with the nullish coalescing operator ?? `#whereBetween` `#date`
 
-[with - cheat sheet](#with_cheat_sheet) #with #without
+[with - cheat sheet](#with---cheat-sheet) #with #without
 
 ### **allRelatedIds**
 
@@ -43,6 +47,37 @@ $article->tags()->pluck('id')->toArray();
 
 // you can use
 $article->tags()->allRelatedIds()->toArray();
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **isDirty-and-isClean**
+
+```php
+use App\Models\User;
+ 
+$user = User::create([
+    'first_name' => 'Taylor',
+    'last_name' => 'Otwell',
+    'title' => 'Developer',
+]);
+ 
+$user->title = 'Painter';
+ 
+$user->isDirty(); // true
+$user->isDirty('title'); // true
+$user->isDirty('first_name'); // false
+$user->isDirty(['first_name', 'title']); // true
+ 
+$user->isClean(); // false
+$user->isClean('title'); // false
+$user->isClean('first_name'); // true
+$user->isClean(['first_name', 'title']); // false
+ 
+$user->save();
+ 
+$user->isDirty(); // false
+$user->isClean(); // true
 ```
 
 [🔝 Back to eloquent](#eloquent)
@@ -145,6 +180,28 @@ class Client extends Model
         );
     }
 }
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **wasChanged**
+
+```php
+$user = User::create([
+    'first_name' => 'Taylor',
+    'last_name' => 'Otwell',
+    'title' => 'Developer',
+]);
+ 
+$user->title = 'Painter';
+ 
+$user->save();
+ 
+$user->wasChanged(); // true
+$user->wasChanged('title'); // true
+$user->wasChanged(['title', 'slug']); // true
+$user->wasChanged('first_name'); // false
+$user->wasChanged(['first_name', 'title']); // true
 ```
 
 [🔝 Back to eloquent](#eloquent)
