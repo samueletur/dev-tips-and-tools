@@ -13,6 +13,28 @@ mkfile 10m testfile.pdf
 
 # Laravel
 
+## Auth
+
+[Breeze](#breeze)
+
+### **breeze**
+
+An alternative to pluck('id'') to get all of the IDs for the related models.
+
+```php
+composer require laravel/breeze --dev
+php artisan breeze:install
+npm install && npm dev
+php artisan migrate
+
+// Breeze Vue
+php artisan breeze:install vue
+npm install && npm dev
+php artisan migrate
+```
+
+[🔝 Back to eloquent](#eloquent)
+
 ## Eloquent
 
 [allRelatedIds](#allRelatedIds)
