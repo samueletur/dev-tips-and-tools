@@ -273,6 +273,11 @@ Order::where('user_id',$user->id)->sum('total_amount');
 
 // you can use
 Order::whereBelongsTo($user)->sum('total_amount');
+
+// instead of
+Post::where('user_id',$author->id)->where('category_id',$category->id)->first();
+// you can use
+Post::whereBelongsTo($author)->whereBelongsTo($category)->first();
 ```
 
 [🔝 Back to eloquent](#eloquent)
