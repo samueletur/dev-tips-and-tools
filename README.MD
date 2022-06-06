@@ -17,6 +17,8 @@ mkfile 10m testfile.pdf
 
 [allRelatedIds](#allRelatedIds)
 
+[insertGetId](#insertGetId)
+
 [isDirty and isClean](#isDirty-and-isClean)
 
 [Push](#push)
@@ -47,6 +49,20 @@ $article->tags()->pluck('id')->toArray();
 
 // you can use
 $article->tags()->allRelatedIds()->toArray();
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **insertGetId**
+
+If you want to return the record ID, instead of a boolean value, when you use `insert` query builder method. You can use `insertGetId` instead.
+
+```php
+// return boolean
+DB::table('users')->insert($data);
+
+// return a integer record ID
+DB::table('users')->insertGetId($data);
 ```
 
 [🔝 Back to eloquent](#eloquent)
