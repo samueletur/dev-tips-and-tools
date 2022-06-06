@@ -17,6 +17,8 @@ mkfile 10m testfile.pdf
 
 [allRelatedIds](#allRelatedIds)
 
+[find](#find)
+
 [insertGetId](#insertGetId)
 
 [isDirty and isClean](#isDirty-and-isClean)
@@ -49,6 +51,23 @@ $article->tags()->pluck('id')->toArray();
 
 // you can use
 $article->tags()->allRelatedIds()->toArray();
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **find**
+
+AThe `find` method accepts an array of ids to retrieve many records based on IDs.
+
+```php
+// instead of this
+$users = $user->whereIn('id',$ids)->get();
+
+// you can use
+$users = $user->find($ids);
+
+// Or you can use findMany
+$users = $user->findMany($ids,['name','email']);
 ```
 
 [🔝 Back to eloquent](#eloquent)
