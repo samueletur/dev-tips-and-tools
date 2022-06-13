@@ -24,7 +24,7 @@ An alternative to pluck('id'') to get all of the IDs for the related models.
 ```php
 composer require laravel/breeze --dev
 php artisan breeze:install
-npm install && npm dev
+npm install && npm run dev
 php artisan migrate
 
 // Breeze Vue
@@ -48,6 +48,8 @@ php artisan migrate
 [Push](#push)
 
 [Relationships - Querying existence of relationships](#relationships-querying-existence) `#mysql` `#whereHas` `#has` `#relationship`
+
+[Routing - Parameters regular expression constraint](#routing-parameters-regular-expression-constraint) `#route`
 
 [SelectRaw](#selectraw) `#mysql` `#selectRaw` `#query`
 
@@ -192,6 +194,34 @@ $posts = Post::whereDoesntHave('comments', function (Builder $qry) {
     $qry->where('content','like','code%');
 })->get();
 
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+routing-parameters-regular-expression-constraint
+### **Routing Parameters Regular Expression Constraint**
+
+```php
+Route::get('posts/{post}', function() {
+    // ...
+})->where('post','[A-Za-z]+');
+
+    // only letters
+    ->whereAlpha();
+
+    //only numbers
+    ->whereNumber();
+    // Letters e numbers
+    ->onlyAlphaNumeric();
+
+    // regular expression with more parameters
+    Route::get('posts/{id}/{post}', function() {
+        // ...
+    })->where(['id' => '[0-9]+', 'name' => '[a-z]+']);    
+
+    Route::get('/user/{id}/{name}', function ($id, $name) {
+        //
+    })->whereNumber('id')->whereAlpha('name');    
 ```
 
 [🔝 Back to eloquent](#eloquent)
