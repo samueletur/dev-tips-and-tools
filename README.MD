@@ -45,6 +45,8 @@ php artisan migrate
 
 [isDirty and isClean](#isDirty-and-isClean)
 
+[Lazy Loading](#lazy-loading)
+
 [Push](#push)
 
 [Relationships - Querying existence of relationships](#relationships-querying-existence) `#mysql` `#whereHas` `#has` `#relationship`
@@ -141,6 +143,22 @@ $user->isClean(); // true
 
 [🔝 Back to eloquent](#eloquent)
 
+### **Lazi Loading**
+
+Dealing with N+1 queries is probably one of the most common sources of performance issues. Since Laravel 8, you can entirely turn off lazy loading. This means if a relationship is not eager loaded, and you try to access it, Laravel will throw an exception in your face!
+
+```php
+class AppServiceProvider extends ServiceProvider
+{
+  public function boot()
+  {
+    Model::preventLazyLoading(!app()->isProduction());
+  }
+}
+```
+
+[🔝 Back to eloquent](#eloquent)
+
 ### **Push**
 
 Save the product and its relations
@@ -206,22 +224,22 @@ Route::get('posts/{post}', function() {
     // ...
 })->where('post','[A-Za-z]+');
 
-    // only letters
-    ->whereAlpha();
+// only letters
+->whereAlpha();
 
-    //only numbers
-    ->whereNumber();
-    // Letters e numbers
-    ->onlyAlphaNumeric();
+//only numbers
+->whereNumber();
+// Letters e numbers
+->onlyAlphaNumeric();
 
-    // regular expression with more parameters
-    Route::get('posts/{id}/{post}', function() {
-        // ...
-    })->where(['id' => '[0-9]+', 'name' => '[a-z]+']);    
+// regular expression with more parameters
+Route::get('posts/{id}/{post}', function() {
+    // ...
+})->where(['id' => '[0-9]+', 'name' => '[a-z]+']);    
 
-    Route::get('/user/{id}/{name}', function ($id, $name) {
-        //
-    })->whereNumber('id')->whereAlpha('name');    
+Route::get('/user/{id}/{name}', function ($id, $name) {
+    //
+})->whereNumber('id')->whereAlpha('name');    
 ```
 
 [🔝 Back to eloquent](#eloquent)
