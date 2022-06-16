@@ -43,9 +43,11 @@ php artisan migrate
 
 [insertGetId](#insertGetId)
 
+[Invisible Database Columns](#Invisible-Database-Columns)
+
 [isDirty and isClean](#isDirty-and-isClean)
 
-[Lazy Loading](#lazy-loading)
+[Lazy Loading](#Lazy-Loading)
 
 [Push](#push)
 
@@ -98,6 +100,37 @@ $users = $user->findMany($ids,['name','email']);
 
 [🔝 Back to eloquent](#eloquent)
 
+### **Invisible-Database-Columns**
+
+The invisible column is a new concept in MySQL 8. What it does: when you run a select * query it won't retrieve any invisible column. If you need an invisible column's value you have to specify it explicitly in the select statement.
+
+It's a very useful concept for sensitive information such as:
+
+Password
+Tokens
+API keys
+Payment-related information
+
+And now, Laravel supports these columns:
+
+```php
+Schema::table('users', function (Blueprint $table) {
+  $table->string('password')->invisible();
+});
+
+$user = User::first();
+$user->secret === null;
+
+// This query will return null despite the fact that it's a select * query.
+// It's because password is invisible.
+// If you need the password you need to run this query:
+
+$user = User::select('password')->first();
+$user->password !== null;
+```
+
+[🔝 Back to eloquent](#eloquent)
+
 ### **insertGetId**
 
 If you want to return the record ID, instead of a boolean value, when you use `insert` query builder method. You can use `insertGetId` instead.
@@ -143,7 +176,7 @@ $user->isClean(); // true
 
 [🔝 Back to eloquent](#eloquent)
 
-### **Lazi Loading**
+### **Lazi-Loading**
 
 Dealing with N+1 queries is probably one of the most common sources of performance issues. Since Laravel 8, you can entirely turn off lazy loading. This means if a relationship is not eager loaded, and you try to access it, Laravel will throw an exception in your face!
 
@@ -167,8 +200,7 @@ Save the product and its relations
 $product = Product::find(1);
 
 $product->name = 'New Balance Shoes';
-$product->brand->name = 'New Balance';
-$product->department->name = 'Men';
+$product->brand->name = 'New Balance'; $product->department->name = 'Men';
 
 // Save the product and its relations
 $product->push();
