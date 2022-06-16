@@ -43,11 +43,11 @@ php artisan migrate
 
 [insertGetId](#insertGetId)
 
-[Invisible Database Columns](#Invisible-Database-Columns)
+[Invisible Database Columns](#invisible-database-columns)
 
 [isDirty and isClean](#isDirty-and-isClean)
 
-[Lazy Loading](#Lazy-Loading)
+[Lazy Loading](#lazi-loading)
 
 [Push](#push)
 
@@ -100,7 +100,7 @@ $users = $user->findMany($ids,['name','email']);
 
 [🔝 Back to eloquent](#eloquent)
 
-### **Invisible-Database-Columns**
+### **Invisible database columns**
 
 The invisible column is a new concept in MySQL 8. What it does: when you run a select * query it won't retrieve any invisible column. If you need an invisible column's value you have to specify it explicitly in the select statement.
 
