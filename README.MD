@@ -436,6 +436,25 @@ $books = Book::with(['author' => function($query) {
 [🔝 Back to eloquent](#eloquent)
 
 
+## General
+
+[Namespaces](#namespaces)
+
+### **Namespaces**
+
+```php
+
+// instead of
+use App\Resources\UserResource;
+use App\Resources\StudentResource;
+use App\Resources\AdministratorResource;
+
+// you can use
+use App\Resources
+```
+
+[🔝 Back to eloquent](#eloquent)
+
 # PHP
 
 [Get class methods](#get-class-methods) 
