@@ -69,6 +69,8 @@ php artisan migrate
 
 [with - cheat sheet](#with---cheat-sheet) #with #without
 
+[withCount](#withcount) #with #withCount
+
 ### **allRelatedIds**
 
 An alternative to pluck('id'') to get all of the IDs for the related models.
@@ -393,6 +395,23 @@ Post::whereBetween('publish_at', [
     $request->from ?? '1970-01-01',
     $request->to ?? today()->toDateTimeString()
 ])->get();
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **withcount**
+
+```php
+// Get post with comments count
+$post = Post::withCount('comments');
+
+// Get an article with approved comments count
+$post = Post::withCount([
+    'comments' => fn($query) => $query->where('approved',true)
+]);
+
+// You can access the comment using
+$post->comment_counts;
 ```
 
 [🔝 Back to eloquent](#eloquent)
