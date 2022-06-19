@@ -399,7 +399,7 @@ Post::whereBetween('publish_at', [
 
 [🔝 Back to eloquent](#eloquent)
 
-### **withcount**
+### **withCount**
 
 ```php
 // Get post with comments count
@@ -470,6 +470,26 @@ use App\Resources\AdministratorResource;
 
 // you can use
 use App\Resources
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+## Route
+
+[URI fragment](#uri-fragment)
+
+### **Uri fragment**
+
+```php
+return redirect()
+    ->back()
+    ->withFragment('contactForm');
+// domain.test/url#contactForm
+
+return redirect()
+    ->route('product.show')
+    ->withFragment('reviews')
+// domain.test/product/23#reviews
 ```
 
 [🔝 Back to eloquent](#eloquent)
