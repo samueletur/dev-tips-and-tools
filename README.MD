@@ -17,6 +17,8 @@ mkfile 10m testfile.pdf
 
 [Breeze](#breeze)
 
+[Login - Event](#login-event)
+
 ### **breeze**
 
 An alternative to pluck('id'') to get all of the IDs for the related models.
@@ -31,6 +33,34 @@ php artisan migrate
 php artisan breeze:install vue
 npm install && npm dev
 php artisan migrate
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **Login Event**
+
+Closure-based login event listener
+
+```php
+namespace App\Providers;
+
+use Illuminate\Support\Facades\Event;
+use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+
+class EventServiceProvider extends ServiceProvider
+{
+    protected $listen = [];
+
+    public function boot()
+    {
+        parent::boot();
+
+        Event::listen('Illuminate\Auth\Events\Login', function() {
+            logger('login ...');
+        });
+
+    }
+}
 ```
 
 [🔝 Back to eloquent](#eloquent)
@@ -492,7 +522,7 @@ return redirect()
 // domain.test/product/23#reviews
 
 $products = Product::paginate(15)
-    ->withFragment('produts');
+    ->fragment('produts');
 // domain.test/products?page=2#products
 ```
 
