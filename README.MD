@@ -506,8 +506,29 @@ use App\Resources
 
 ## Route
 
+[Generate csv from route list](#generate-csv-from-route-list)
+
 [URI fragment](#uri-fragment)
 
+### **Generate csv from route list**
+
+```php
+Route::get('r', function()
+{
+    header('Content-Type: application/excel');
+    header('Content-Disposition: attachment; filename="routes.csv"');
+
+    $routes = Route::getRoutes();
+    $fp = fopen('php://output', 'w');
+    fputcsv($fp, ['METHOD', 'URI', 'NAME', 'ACTION']);
+    foreach ($routes as $route) {
+        fputcsv($fp, [head($route->methods()) , $route->uri(), $route->getName(), $route->getActionName()]);
+    }
+    fclose($fp);
+});
+```
+
+[🔝 Back to Route](#route)
 ### **Uri fragment**
 
 ```php
