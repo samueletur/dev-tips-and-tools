@@ -19,6 +19,56 @@ mkfile 10m testfile.pdf
 
 [Login - Event](#login-event)
 
+## Eloquent
+
+[allRelatedIds](#allRelatedIds)
+
+[find](#find)
+
+[insertGetId](#insertGetId)
+
+[Invisible Database Columns](#invisible-database-columns)
+
+[isDirty and isClean](#isDirty-and-isClean)
+
+[Lazy Loading](#lazi-loading)
+
+[Push](#push)
+
+[Relationships - Querying existence of relationships](#relationships-querying-existence) `#mysql` `#whereHas` `#has` `#relationship`
+
+[Routing - Parameters regular expression constraint](#routing-parameters-regular-expression-constraint) `#route`
+
+[SelectRaw](#selectraw) `#mysql` `#selectRaw` `#query`
+
+[Sensitive Data](#sensitive-data) `#crypt` `#cast` `#attribute`
+
+[wasChanged](#wasChanged)
+
+[when for conditionally situations](#when-for-conditionally-situations) `#when`
+
+[whereBelongsTo](#whereBelongsTo)
+
+[whereBetween with dates](#wherebetween-with-dates) use whereBetween with a range date. If you need to provide fallback you can do so with the nullish coalescing operator ?? `#whereBetween` `#date`
+
+[with - cheat sheet](#with---cheat-sheet) #with #without
+
+[withCount](#withcount) #with #withCount
+
+## General
+
+[Namespaces](#namespaces)
+
+## Misc
+
+[Laravel Pint](#laravel-pint)
+
+## Route
+
+[Generate csv from route list](#generate-csv-from-route-list)
+
+[URI fragment](#uri-fragment)
+
 ### **breeze**
 
 An alternative to pluck('id'') to get all of the IDs for the related models.
@@ -64,42 +114,6 @@ class EventServiceProvider extends ServiceProvider
 ```
 
 [🔝 Back to eloquent](#eloquent)
-
-## Eloquent
-
-[allRelatedIds](#allRelatedIds)
-
-[find](#find)
-
-[insertGetId](#insertGetId)
-
-[Invisible Database Columns](#invisible-database-columns)
-
-[isDirty and isClean](#isDirty-and-isClean)
-
-[Lazy Loading](#lazi-loading)
-
-[Push](#push)
-
-[Relationships - Querying existence of relationships](#relationships-querying-existence) `#mysql` `#whereHas` `#has` `#relationship`
-
-[Routing - Parameters regular expression constraint](#routing-parameters-regular-expression-constraint) `#route`
-
-[SelectRaw](#selectraw) `#mysql` `#selectRaw` `#query`
-
-[Sensitive Data](#sensitive-data) `#crypt` `#cast` `#attribute`
-
-[wasChanged](#wasChanged)
-
-[when for conditionally situations](#when-for-conditionally-situations) `#when`
-
-[whereBelongsTo](#whereBelongsTo)
-
-[whereBetween with dates](#wherebetween-with-dates) use whereBetween with a range date. If you need to provide fallback you can do so with the nullish coalescing operator ?? `#whereBetween` `#date`
-
-[with - cheat sheet](#with---cheat-sheet) #with #without
-
-[withCount](#withcount) #with #withCount
 
 ### **allRelatedIds**
 
@@ -484,11 +498,6 @@ $books = Book::with(['author' => function($query) {
 
 [🔝 Back to eloquent](#eloquent)
 
-
-## General
-
-[Namespaces](#namespaces)
-
 ### **Namespaces**
 
 ```php
@@ -504,11 +513,20 @@ use App\Resources
 
 [🔝 Back to eloquent](#eloquent)
 
-## Route
+### **Laravel Pint**
 
-[Generate csv from route list](#generate-csv-from-route-list)
+```php
 
-[URI fragment](#uri-fragment)
+// https://github.com/laravel/pint
+// Laravel Pint requires PHP 8.0+.
+
+composer require laravel/pint --dev
+
+// running
+./vendor/bin/pint -v
+```
+
+[🔝 Back to misc](#misc)
 
 ### **Generate csv from route list**
 
