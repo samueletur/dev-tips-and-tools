@@ -51,6 +51,8 @@ mkfile 10m testfile.pdf
 
 [whereBetween with dates](#wherebetween-with-dates) use whereBetween with a range date. If you need to provide fallback you can do so with the nullish coalescing operator ?? `#whereBetween` `#date`
 
+[whereColumn](#wherecolumn)
+
 [with - cheat sheet](#with---cheat-sheet) #with #without
 
 [withCount](#withcount) #with #withCount
@@ -441,6 +443,22 @@ Post::whereBetween('publish_at', [
     $request->from ?? '1970-01-01',
     $request->to ?? today()->toDateTimeString()
 ])->get();
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **whereColumn**
+
+Eloquent tip for comparing database columns to each other within a query
+
+```php
+Post::whereColumn('created_at','updated_at');
+
+Post::whereColumn('created_at','updated_at')
+    ->whereColumn('author_id','<','editor_id')
+
+Post::whereColumn('created_at','updated_at')
+    ->whereColumn('author_id','<','editor_id', 'or')
 ```
 
 [🔝 Back to eloquent](#eloquent)
