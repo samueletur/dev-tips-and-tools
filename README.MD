@@ -69,6 +69,8 @@ mkfile 10m testfile.pdf
 
 [URI fragment](#uri-fragment)
 
+[Redirect](#redirect)
+
 ### **breeze**
 
 An alternative to pluck('id'') to get all of the IDs for the related models.
@@ -547,6 +549,7 @@ Route::get('r', function()
 ```
 
 [🔝 Back to Route](#route)
+
 ### **Uri fragment**
 
 ```php
@@ -563,6 +566,24 @@ return redirect()
 $products = Product::paginate(15)
     ->fragment('produts');
 // domain.test/products?page=2#products
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **Redirect**
+
+```php
+Redirect::to();
+
+Redirect::route();
+
+redirect();
+
+redirect()->to();
+
+redirect()->route();
+
+to_route();
 ```
 
 [🔝 Back to eloquent](#eloquent)
