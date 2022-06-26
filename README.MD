@@ -559,6 +559,17 @@ composer require laravel/pint --dev
 
 // 1 item in your cart
 // 3 itens in your cart
+
+// Macro
+// In AppServiceProvider boot method
+Str::macro(
+    'pluralize', 
+    fn($value, $count) => $count .' '. Str::plural($value,$count)
+);
+
+// Later
+{{ Str::pluralize('item',$items->count()) }} in your cart
+
 ```
 
 [🔝 Back to Misc](#misc)
