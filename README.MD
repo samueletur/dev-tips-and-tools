@@ -29,7 +29,7 @@ mkfile 10m testfile.pdf
 
 [find](#find)
 
-[GroupBy]('#groupby')
+[GroupBy](#groupby)
 
 [insertGetId](#insertGetId)
 
