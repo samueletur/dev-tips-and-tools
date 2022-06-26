@@ -65,6 +65,8 @@ mkfile 10m testfile.pdf
 
 [Laravel Pint](#laravel-pint)
 
+[Str Plural](#str-plural)
+
 ## Route
 
 [Generate csv from route list](#generate-csv-from-route-list)
@@ -547,6 +549,19 @@ composer require laravel/pint --dev
 ```
 
 [🔝 Back to misc](#misc)
+
+### **Str Plural**
+
+```php
+{{ $itens->count() }}
+
+{{ str('item')->plural($itens->count) }} in your cart
+
+// 1 item in your cart
+// 3 itens in your cart
+```
+
+[🔝 Back to Misc](#misc)
 
 ### **Generate csv from route list**
 
