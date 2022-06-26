@@ -11,6 +11,10 @@ mkfile 10m testfile.pdf
 
 [🔝 Back to php](#php)
 
+# PHP
+
+[isset](#isset)
+
 # Laravel
 
 ## Auth
@@ -74,6 +78,18 @@ mkfile 10m testfile.pdf
 [URI fragment](#uri-fragment)
 
 [Redirect](#redirect)
+
+### **isset**
+
+```php
+// instead of
+if(isset($value) && isset($value2) && isset($value3))
+
+// you can use
+if(isset($value,$value2,$value3))
+```
+
+[🔝 Back to php](#php)
 
 ### **breeze**
 
