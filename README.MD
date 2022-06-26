@@ -29,6 +29,8 @@ mkfile 10m testfile.pdf
 
 [find](#find)
 
+[GroupBy]('#groupby')
+
 [insertGetId](#insertGetId)
 
 [Invisible Database Columns](#invisible-database-columns)
@@ -164,6 +166,30 @@ $users = $user->find($ids);
 
 // Or you can use findMany
 $users = $user->findMany($ids,['name','email']);
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **GroupBy**
+
+```php
+// instead of this
+$years = Post::query()
+    ->with('user')
+    ->latest('created_at')
+    ->get()
+    ->groupBy(fn($post)=>$post->created_at->year);
+
+return view('posts', ['years'=>$years]);
+
+// in your view
+@foreach($years as $year => $posts)
+<h3>{{ $year }}</h3>
+    @foreach($posts as $post)
+        <p>{{ $post->title }}</p>
+    @endforeach
+@endforeach
+
 ```
 
 [🔝 Back to eloquent](#eloquent)
