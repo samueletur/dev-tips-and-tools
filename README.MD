@@ -81,6 +81,10 @@ mkfile 10m testfile.pdf
 
 [Redirect](#redirect)
 
+## Storage
+
+[Cheatsheet](#storage-cheatsheet)
+
 ### **isset**
 
 ```php
@@ -673,6 +677,60 @@ to_route();
 ```
 
 [🔝 Back to eloquent](#eloquent)
+
+### **Storage Cheatsheet**
+
+```php
+// Get the contents of a file
+Storage::get($path);
+
+// Create a streamed download response for a given file
+Storage::download($path, $name = null, array $headers = []);
+
+// Write the contents of a file
+Storage::put($path, $contents, $options = []);
+
+// Store the uploaded file on the disk
+Storage::putFile($path, $file, $options = []);
+
+// Store the uploaded file on the disk with a given name
+Storage::putFileAs($path, $file, $name, $options = []);
+
+// Get the visibility for the given path
+Storage::getVisibility($path);
+
+// Set the visibility for the given path
+Storage::setVisibility($path, $visibility);
+
+// Prepend to a file
+Storage::prepend($path, $data, $separator = PHP_EOL);
+
+// Append to a file
+Storage::append($path, $data, $separator = PHP_EOL);
+
+// Delete the file at a given path
+Storage::delete($paths);
+
+// Copy a file to a new location
+Storage::copy($from, $to);
+
+// Move a file to a new location
+Storage::move($from, $to);
+
+// Get the file size of a given file
+Storage::size($path);
+
+// Get the mime-type of a given file
+Storage::mimeType($path);
+
+// get the file's last modification time
+Storage::lastModified($path);
+
+// Get an array of all files in a directory
+Storage::files($directory = null, $recursive = false);
+```
+
+[🔝 Back to storage](#storage)
 
 # PHP
 
