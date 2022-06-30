@@ -41,6 +41,8 @@ mkfile 10m testfile.pdf
 
 [Push](#push)
 
+[Relationships - Default](#relationships-default)
+
 [Relationships - Querying existence of relationships](#relationships-querying-existence) `#mysql` `#whereHas` `#has` `#relationship`
 
 [Routing - Parameters regular expression constraint](#routing-parameters-regular-expression-constraint) `#route`
@@ -302,6 +304,31 @@ $product->brand->name = 'New Balance'; $product->department->name = 'Men';
 
 // Save the product and its relations
 $product->push();
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **Relationship - Default**
+
+Define default models
+
+```php
+class Comment extends Model
+{
+    public function author()
+    {
+        return $this->belongsTo(User::class)->withDefault([
+            'name' => 'Guest'
+        ]);
+    }
+}
+
+// Now in the view, instead of doing this
+{{ $comment->author ? $comment->author->name : 'Guest' }}
+
+// Can do this
+{{ $comment->author->name }}
+
 ```
 
 [🔝 Back to eloquent](#eloquent)
