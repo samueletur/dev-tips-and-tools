@@ -23,6 +23,10 @@ mkfile 10m testfile.pdf
 
 [Login - Event](#login-event)
 
+## Collection
+
+[Arr::join](#arr-join)
+
 ## Eloquent
 
 [allRelatedIds](#allRelatedIds)
@@ -144,6 +148,22 @@ class EventServiceProvider extends ServiceProvider
 ```
 
 [🔝 Back to eloquent](#eloquent)
+
+### **Arr Join**
+
+Similar to `Collection::join`, you can `Arr::join` to return the new string by concatenating all of the elements in an array
+
+```php
+use illuminate\SupportArr;
+
+$arr  = ['Batman', 'Superman', 'Spider', 'Aquaman'];
+
+Arr::join($arr, ', ', ' and ');
+
+// Batman, Spuperman, Spider and Aquaman
+```
+
+[🔝 Back to collection](#collection)
 
 ### **allRelatedIds**
 
