@@ -2,14 +2,9 @@
 
 [Create fake file size](#create-fake-file-size) 
 
-### **Create fake file size**
+# MYSQL
 
-```php
-// MacOs snippet to fake a 10MB PDF file
-mkfile 10m testfile.pdf
-```
-
-[🔝 Back to php](#php)
+[Delete bilions of rows](#delete-bilions-of-rows)
 
 # PHP
 
@@ -90,6 +85,27 @@ mkfile 10m testfile.pdf
 ## Storage
 
 [Cheatsheet](#storage-cheatsheet)
+
+### **Create fake file size**
+
+```php
+// MacOs snippet to fake a 10MB PDF file
+mkfile 10m testfile.pdf
+```
+
+[🔝 Back to mac](#mac)
+
+### **Delete billions of rows**
+
+```php
+// instead of
+DELETE FROM user_activities WHERE year = 2020;
+
+// you can use
+ALTER TABLE user_activities DROP PARTITION user_activities_2019_q01, ..., user_activities_2019_q04; 
+```
+
+[🔝 Back to mac](#mac)
 
 ### **isset**
 
