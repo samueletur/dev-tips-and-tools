@@ -65,7 +65,7 @@ mkfile 10m testfile.pdf
 
 [whereColumn](#wherecolumn)
 
-[with - cheat sheet](#with---cheat-sheet) #with #without
+[with - cheatsheet](#with---cheat-sheet) #with #without
 
 [withCount](#withcount) #with #withCount
 
@@ -609,6 +609,14 @@ $books = Book::withOnly('genre')->get();
 $books = Book::with(['author' => function($query) {
     $query->where('name','like','Samuel%');
 }])->get();
+
+// You can eager load nested relations using clean array syntax
+$books = Book::with([
+    'author' => [
+        'contacts',
+        'publisher'
+    ],
+])->get();
 ```
 
 [🔝 Back to eloquent](#eloquent)
