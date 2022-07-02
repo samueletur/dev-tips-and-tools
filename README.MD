@@ -95,7 +95,7 @@
 ### **Git commands**  
 
 ```php
-git init: // It is used for initializing a Git repository 
+git init // It is used for initializing a Git repository 
 git clone <url> // Used to clone the repository from remote
 git add <file-name> // Add a file in to the staging
 git add . // Add all files in the staging 
