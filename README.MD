@@ -2,6 +2,12 @@
 
 [Git commands and their explanations](#git-commands)
 
+# Images
+
+[Using Picture](#using-picture)
+
+[Using Srcset](#using-srcset)
+
 # MAC
 
 [Create fake file size](#create-fake-file-size) 
@@ -125,6 +131,39 @@ git log --summary // View changes with details
 
 [🔝 Back to git](#git)
 
+### **Using picture**
+
+```php
+<picture>
+  <source
+    media="(max-width: 767px)"
+    width="96"
+    height="96"
+    srcset="img-mobile.jpg, img-mobile@2x.jpg 2x"
+  />
+  <source
+    media="(min-width: 768px)"
+    width="368"
+    height="193"
+    srcset="img-desktop.jpg, img-desktop@2x 2x, img-desktop@3x 3x"
+  />
+  <img src="img-desktop.jpg" width="368" height="193" />
+</picture>
+```
+
+[🔝 Back to img](#images)
+
+### **Using srcset**
+
+```php
+<img
+  srcset="img-small.jpg 480w, img-large.jpg 1080w"
+  sizes="(max-width: 480px) 100vw, (max-width: 1024px) 50vw, 800px"
+/>
+```
+
+[🔝 Back to img](#images)
+
 ### **Create fake file size**
 
 ```php
@@ -144,7 +183,7 @@ DELETE FROM user_activities WHERE year = 2020;
 ALTER TABLE user_activities DROP PARTITION user_activities_2019_q01, ..., user_activities_2019_q04; 
 ```
 
-[🔝 Back to mac](#mac)
+[🔝 Back to Mysql](#mysql)
 
 ### **isset**
 
