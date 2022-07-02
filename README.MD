@@ -4,7 +4,7 @@
 
 # MYSQL
 
-[Delete bilions of rows](#delete-bilions-of-rows)
+[Delete billions of rows](#delete-billions-of-rows)
 
 # PHP
 
