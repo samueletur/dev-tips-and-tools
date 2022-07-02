@@ -74,6 +74,8 @@
 
 [Str Plural](#str-plural)
 
+[Config values on the fly](#config-values-on-the-fly)
+
 ## Route
 
 [Generate csv from route list](#generate-csv-from-route-list)
@@ -666,6 +668,16 @@ composer require laravel/pint --dev
 ```
 
 [🔝 Back to misc](#misc)
+
+### **Config Values on the fly**
+
+```php
+use Illuminate\Support\Facades\Config;
+
+Config::set('app.allowed_mail_domains', ['example.com']);
+```
+
+[🔝 Back to Misc](#misc)
 
 ### **Str Plural**
 
