@@ -1,3 +1,7 @@
+# GIT
+
+[Git commands and their explanations](#git-commands)
+
 # MAC
 
 [Create fake file size](#create-fake-file-size) 
@@ -87,6 +91,38 @@
 ## Storage
 
 [Cheatsheet](#storage-cheatsheet)
+
+### **Git commmands**  
+
+```php
+git init: // It is used for initializing a Git repository 
+git clone <url> // Used to clone the repository from remote
+git add <file-name> // Add a file in to the staging
+git add . // Add all files in the staging 
+git add -A  // Add new files to the staging
+git commit -m "message" // Commit the changes
+git rm -r file.html // Removes a file
+git branch // lists are the branches
+git status // Checking the status
+git branch -a // List all the local and remote branches
+git config --global --list // Get global config 
+git revert commit_id // Revert the changes for a commit using id
+git log // View the changes
+git pull // Pull the changes from remote to local
+git push // Push the changes from local to remote
+git branch branch_name // Create a new branch
+git branch -d branch_name // Delete a branch
+git checkout branch_name // Switch to a branch
+git checkout -- file.html // Discard changes from a file
+git stash // Stash the changes
+git stash clear // Discard all the stashes
+git remote add origin URL // Add a remote repository
+git branch -m old_branch_name new_branch_name
+git checkout -  // Switch to the branch last checked out
+git log --summary // View changes with details
+```
+
+[🔝 Back to git](#git)
 
 ### **Create fake file size**
 
