@@ -113,6 +113,7 @@ git push // Push the changes from local to remote
 git branch branch_name // Create a new branch
 git branch -d branch_name // Delete a branch
 git checkout branch_name // Switch to a branch
+git checkout -b branch_name // Create a new branch with the given name and immediately switch to it
 git checkout -- file.html // Discard changes from a file
 git stash // Stash the changes
 git stash clear // Discard all the stashes
