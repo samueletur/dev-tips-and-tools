@@ -92,7 +92,7 @@
 
 [Cheatsheet](#storage-cheatsheet)
 
-### **Git commmands**  
+### **Git commands**  
 
 ```php
 git init: // It is used for initializing a Git repository 
