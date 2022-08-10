@@ -189,10 +189,11 @@ ALTER TABLE user_activities DROP PARTITION user_activities_2019_q01, ..., user_a
 [🔝 Back to Mysql](#mysql)
 ### **Set timezone**
 
+[Support timezones](https://www.php.net/manual/en/timezones.php) 
+ 
 ```php
 SET time_zone = "America/Sao_Paulo";
 
-[Support timezones](https://www.php.net/manual/en/timezones.php)  
 ```
 
 [🔝 Back to Mysql](#mysql)
