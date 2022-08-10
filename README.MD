@@ -16,6 +16,7 @@
 
 [Delete billions of rows](#delete-billions-of-rows)
 
+[Set Timezone](#set-timezone)
 # PHP
 
 [isset](#isset)
@@ -134,6 +135,7 @@ git log --summary // View changes with details
 ### **Using picture**
 
 ```php
+// Reference: https://sendy.daily-dev-tips.com/w/PxB892JyyvFQAG3r0BENjd7g/u1EYAy4ATBwEDYLJQ8o84g/t8N763Qt5c2zcUziLCeqWpaQ
 <picture>
   <source
     media="(max-width: 767px)"
@@ -156,6 +158,7 @@ git log --summary // View changes with details
 ### **Using srcset**
 
 ```php
+// Reference: https://sendy.daily-dev-tips.com/w/PxB892JyyvFQAG3r0BENjd7g/u1EYAy4ATBwEDYLJQ8o84g/t8N763Qt5c2zcUziLCeqWpaQ
 <img
   srcset="img-small.jpg 480w, img-large.jpg 1080w"
   sizes="(max-width: 480px) 100vw, (max-width: 1024px) 50vw, 800px"
@@ -181,6 +184,15 @@ DELETE FROM user_activities WHERE year = 2020;
 
 // you can use
 ALTER TABLE user_activities DROP PARTITION user_activities_2019_q01, ..., user_activities_2019_q04; 
+```
+
+[🔝 Back to Mysql](#mysql)
+### **Set timezone**
+
+```php
+SET time_zone = "America/Sao_Paulo";
+
+[Support timezones](https://www.php.net/manual/en/timezones.php)  
 ```
 
 [🔝 Back to Mysql](#mysql)
