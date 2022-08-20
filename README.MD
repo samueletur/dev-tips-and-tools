@@ -51,7 +51,7 @@
 
 [Push](#push)
 
-[Relationships - Default](#relationships-default)
+[Relationships - Default](#relationship-default)
 
 [Relationships - Querying existence of relationships](#relationships-querying-existence) `#mysql` `#whereHas` `#has` `#relationship`
 
