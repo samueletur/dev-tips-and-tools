@@ -71,6 +71,8 @@
 
 [whereColumn](#wherecolumn)
 
+[whereIn](#whereIn)
+
 [with - cheatsheet](#with---cheat-sheet) #with #without
 
 [withCount](#withcount) #with #withCount
@@ -661,6 +663,18 @@ Post::whereColumn('created_at','updated_at')
 
 Post::whereColumn('created_at','updated_at')
     ->whereColumn('author_id','<','editor_id', 'or')
+```
+
+[🔝 Back to eloquent](#eloquent)
+### **whereIn**
+
+Use a query builder in where-in clause
+
+```php
+Post::whereIn('user_id', User::select('id')->where('promoted',true))->get();
+```
+
+[🔝 Back to eloquent](#eloquent)
 ```
 
 [🔝 Back to eloquent](#eloquent)
