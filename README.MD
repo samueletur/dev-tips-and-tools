@@ -37,6 +37,8 @@
 
 [allRelatedIds](#allRelatedIds)
 
+[Composite Indexes](#composite-indexes)
+
 [find](#find)
 
 [GroupBy](#groupby)
@@ -286,6 +288,32 @@ $article->tags()->pluck('id')->toArray();
 
 // you can use
 $article->tags()->allRelatedIds()->toArray();
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **Composite Indexes**
+
+Tip: Database indexes can really help to speed up queries, but applying them arbitrarily to many columns can make things worse. Instead, if you’re querying across multiple columns, use a composite index. Here’s how
+
+```php
+
+class CreateInvitationsTable extends Migration {
+    Schema::create('invitations', function (Blueprint $table) {
+        $table->increments('id');
+        // Before
+        $table->string('organization_id')->index();
+        $table->string('vacancy_id')->index();
+        $table->string('user_id')->index();
+
+        // After
+        $table->string('organization_id');
+        $table->string('vacancy_id');
+        $table->string('user_id');
+
+        $table->index(['organization_id','vacancy_id','user_id']);
+    });
+}
 ```
 
 [🔝 Back to eloquent](#eloquent)
