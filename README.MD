@@ -33,6 +33,7 @@
 
 [Arr::join](#arr-join)
 
+[Collection tips](#collection-tips)
 ## Eloquent
 
 [allRelatedIds](#allRelatedIds)
@@ -274,6 +275,55 @@ $arr  = ['Batman', 'Superman', 'Spider', 'Aquaman'];
 Arr::join($arr, ', ', ' and ');
 
 // Batman, Spuperman, Spider and Aquaman
+```
+
+[🔝 Back to collection](#collection)
+
+### **Collection Tips**
+
+Tip: Instead of manipulating data with lots of procedural PHP methods, consider refactoring to  collections. They allow for beautiful code chains that are so much easier to understand
+
+```php
+/**
+ * Much of the time, our code is responsible for walking through data 
+ * and filtering / formatting it. Instead of writing lots of procedural 
+ * steps using plain PHP, consider refactoring to collections. It's a 
+ * greate way to clean things up and write less code overall.
+ */
+
+$data = [
+    'name' => 'orange', 'citrus' => true,
+    'name' => 'lemon', 'citrus' => true,
+    'name' => 'apple', 'citrus' => false,
+];
+
+// Before
+$data = array_filter($data, function($item) {
+    return $item['citrus'];
+});
+
+array_walk($data, function(&$item) {
+    $item = ucfirst($item['name']);
+});
+
+$sort($data);
+
+return array_values($data); // ['Lemon', 'Orange']
+
+// After
+
+return collect($data)
+    ->filter(fn($item) => $item['citrus'])
+    ->map(fn($item) => ucfirst($item['name']))
+    ->sort()   
+    ->values()
+    ->toArray();
+```
+
+[🔝 Back to collection](#collection)
+```
+
+[🔝 Back to collection](#collection)
 ```
 
 [🔝 Back to collection](#collection)
