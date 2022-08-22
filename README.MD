@@ -323,11 +323,6 @@ return collect($data)
 [🔝 Back to collection](#collection)
 ```
 
-[🔝 Back to collection](#collection)
-```
-
-[🔝 Back to collection](#collection)
-
 ### **allRelatedIds**
 
 An alternative to pluck('id'') to get all of the IDs for the related models.
