@@ -221,18 +221,23 @@ if(isset($value,$value2,$value3))
 ### **helpers-check-bugs**
 
 ```php
-PHP CS Fixer[https://github.com/FriendsOfPHP/PHP-CS-Fixer]
+[PHP CS Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
+// This tool will help you by keeping the style of your code consistent for you and your team. You can easily configure it to fit yours and your team's rules. Also, run this as part of your continous integration workflow.
 
-PHPStan[https://github.com/phpstan/phpstan]
+[PHPStan](https://github.com/phpstan/phpstan)
+// This tool will analyze your code and find potential issues in your code based on the rules you set for you and your team. You can create custom rules and test them as well. Also, run this as part of your continous integration workflow.
 
-Arkitect[https://github.com/phparkitect/arkitect]
+[Arkitect](https://github.com/phparkitect/arkitect)
+// This tool will help you keep your folder and namespace architecture constistent for you and your team. You can customize it based on your project structure. Also, run this as part of your continous integration workflow.
 
-Infection[https://github.com/infection/infection]
+[Infection](https://github.com/infection/infection)
+// This tool will add an additional layer of scenarios for your automated tests to see if your code is written properly.    Also, run this as part of your continous integration workflow.
 
-Deptrac[https://github.com/qossmic/deptrac]
+[Deptrac](https://github.com/qossmic/deptrac)
+// Deptrac is a static code analysis tool for PHP that helps you communicate, visualize and enforce architectural decisions in your projects. Also, run this as part of your continous integration workflow.
 
-Rector[https://github.com/rectorphp/rector]
-This tool will help you refactor your code as well as upgrade your codebase from time to time to keep up with the latest PHP, tools, packages and framework updates.
+[Rector](https://github.com/rectorphp/rector)
+// This tool will help you refactor your code as well as upgrade your codebase from time to time to keep up with the latest PHP, tools, packages and framework updates.
 
 ```
 
