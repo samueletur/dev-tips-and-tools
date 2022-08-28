@@ -220,7 +220,6 @@ if(isset($value,$value2,$value3))
 
 ### **helpers-checks-bugs**
 
-```php
 [PHP CS Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 // This tool will help you by keeping the style of your code consistent for you and your team. You can easily configure it to fit yours and your team's rules. Also, run this as part of your continous integration workflow.
 
@@ -238,8 +237,6 @@ if(isset($value,$value2,$value3))
 
 [Rector](https://github.com/rectorphp/rector)
 // This tool will help you refactor your code as well as upgrade your codebase from time to time to keep up with the latest PHP, tools, packages and framework updates.
-
-```
 
 [🔝 Back to php](#php)
 
