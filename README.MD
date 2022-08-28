@@ -218,7 +218,7 @@ if(isset($value,$value2,$value3))
 
 [🔝 Back to php](#php)
 
-### **helpers-check-bugs**
+### **helpers-checks-bugs**
 
 ```php
 [PHP CS Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
