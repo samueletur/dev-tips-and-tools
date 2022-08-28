@@ -21,6 +21,7 @@
 
 [isset](#isset)
 
+[Helpers checks bugs](#helpers-checks-bugs)
 # Laravel
 
 ## Auth
@@ -213,6 +214,26 @@ if(isset($value) && isset($value2) && isset($value3))
 
 // you can use
 if(isset($value,$value2,$value3))
+```
+
+[🔝 Back to php](#php)
+
+### **helpers-check-bugs**
+
+```php
+PHP CS Fixer[https://github.com/FriendsOfPHP/PHP-CS-Fixer]
+
+PHPStan[https://github.com/phpstan/phpstan]
+
+Arkitect[https://github.com/phparkitect/arkitect]
+
+Infection[https://github.com/infection/infection]
+
+Deptrac[https://github.com/qossmic/deptrac]
+
+Rector[https://github.com/rectorphp/rector]
+This tool will help you refactor your code as well as upgrade your codebase from time to time to keep up with the latest PHP, tools, packages and framework updates.
+
 ```
 
 [🔝 Back to php](#php)
