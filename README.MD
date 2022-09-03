@@ -87,6 +87,10 @@
 
 [Namespaces](#namespaces)
 
+
+## Logs
+[Query Log](#query-log)
+
 ## Misc
 
 [Laravel Pint](#laravel-pint)
@@ -869,6 +873,37 @@ use App\Resources
 ```
 
 [🔝 Back to eloquent](#eloquent)
+
+### **Query Log**
+
+Inside the 𝗔𝗽𝗽𝗦𝗲𝗿𝘃𝗶𝗰𝗲𝗣𝗿𝗼𝘃𝗶𝗱𝗲𝗿, locate the 𝗯𝗼𝗼𝘁() function and add the following statement
+
+```php
+
+// \app\Providers\AppServiceProvider.php
+
+use DB;
+use Log;
+
+public function boot()
+{
+
+    // Add in the boot method of the AppServiceProvider
+    DB::listen(function ($query) {
+        Log::info($query->sql, $query->bindings, $query->time);
+    });
+}
+```
+
+[🔝 Back to logs](#logs)
+
+composer require laravel/pint --dev
+
+// running
+./vendor/bin/pint -v
+```
+
+[🔝 Back to misc](#misc)
 
 ### **Laravel Pint**
 
