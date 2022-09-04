@@ -77,6 +77,8 @@
 
 [whereColumn](#wherecolumn)
 
+[whereDate](#wheredate)
+
 [whereIn](#whereIn)
 
 [with - cheatsheet](#with---cheat-sheet) #with #without
@@ -783,6 +785,36 @@ Post::whereColumn('created_at','updated_at')
 ```
 
 [🔝 Back to eloquent](#eloquent)
+### **whereDate**
+
+Tip: Eloquent’s ‘whereDate’ function is useful, but it prevents the database from using an index, which can effect performance on large tables. Fortunately, it is easy to replace it with ‘whereBetween’:
+
+```php
+/**
+ * Eloquent includes a whereDate method, as well as variations for moth, day, etc...
+ * It is useful for finding all records on a particular date
+ */
+User::whereDate('created_at', now()->toDateString())->get();
+
+/**
+ * The problem, is that under the hood, Eloquent warps the where condition
+ * within a DATE() function. In MySQL (and probably other databases), this
+ * prevents an index from beign used, which can effect performance on large tables.
+ * For large tables, this can hurt performance. You can easily fix it by replacing
+ * it witb a whereBetween condition:
+ */
+$start = now()->startOfDay();
+$end = now()->endOfDay();
+
+User::whereBetween('created_at', [$start, $end])->get();
+```
+
+[🔝 Back to eloquent](#eloquent)    
+
+```
+
+[🔝 Back to eloquent](#eloquent)
+
 ### **whereIn**
 
 Use a query builder in where-in clause
