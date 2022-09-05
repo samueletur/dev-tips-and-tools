@@ -947,7 +947,7 @@ If you want to add columns after another column then in that case you can use th
 ```php
 Schema::table('users', function (Blueprint $table) {
     $table->after('email', function ($table) {
-        $table->string('status');
+        $table->integer('status');
         $table->string('address');
         $table->string('city');
         $table->string('state');
