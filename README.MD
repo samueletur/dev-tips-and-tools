@@ -37,6 +37,8 @@
 [Collection tips](#collection-tips)
 ## Eloquent
 
+[after](#after)
+
 [allRelatedIds](#allRelatedIds)
 
 [Composite Indexes](#composite-indexes)
@@ -93,6 +95,9 @@
 ## Logs
 [Query Log](#query-log)
 
+## Migrate
+
+[Migrate After](#migrate-after)
 ## Misc
 
 [Laravel Pint](#laravel-pint)
@@ -350,7 +355,6 @@ return collect($data)
 ```
 
 [🔝 Back to collection](#collection)
-```
 
 ### **allRelatedIds**
 
@@ -933,9 +937,25 @@ composer require laravel/pint --dev
 
 // running
 ./vendor/bin/pint -v
-```
 
 [🔝 Back to misc](#misc)
+
+### **Migrate After**
+
+If you want to add columns after another column then in that case you can use the `after` method.
+
+```php
+Schema::table('users', function (Blueprint $table) {
+    $table->after('email', function ($table) {
+        $table->string('status');
+        $table->string('address');
+        $table->string('city');
+        $table->string('state');
+    });
+});
+```
+
+[🔝 Back to migrate](#migrate)
 
 ### **Laravel Pint**
 
