@@ -114,6 +114,9 @@
 
 [Redirect](#redirect)
 
+[Resources Group](#resources-group)
+
+
 ## Storage
 
 [Cheatsheet](#storage-cheatsheet)
@@ -1063,6 +1066,27 @@ to_route();
 ```
 
 [🔝 Back to eloquent](#eloquent)
+
+
+### **Resources Group**
+
+```php
+// instead of
+route::resource('users', UserController::class);
+route::resource('clients', ClientController::class);
+route::resource('providers', ProviderController::class);
+route::resource('partners', PartnerController::class);
+
+// You can use
+Route::resources([
+    'users' => UserController::class,
+    'clients' => ClientController::class,
+    'partners' => PartnerController::class,
+    'providers' => ProviderController::class,
+]);
+```
+
+[🔝 Back to routes](#routes)
 
 ### **Storage Cheatsheet**
 
