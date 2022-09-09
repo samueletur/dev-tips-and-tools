@@ -1086,7 +1086,7 @@ Route::resources([
 ]);
 ```
 
-[🔝 Back to routes](#routes)
+[🔝 Back to route](#route)
 
 ### **Storage Cheatsheet**
 
