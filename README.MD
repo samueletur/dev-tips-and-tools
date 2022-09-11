@@ -32,9 +32,9 @@
 
 ## Collection
 
-[Arr::join](#arr-join)
-
 [Arr::dot](#arr-dot)
+
+[Arr::join](#arr-join)
 
 [Collection tips](#collection-tips)
 ## Eloquent
@@ -300,7 +300,7 @@ class EventServiceProvider extends ServiceProvider
 }
 ```
 
-[🔝 Back to eloquent](#eloquent)
+[🔝 Back to collect](#collect)
 
 ### **Arr Dot**
 
@@ -318,7 +318,7 @@ Arr::dot($arr);
 // rede_sociais.youtube: youtube.com
 ```
 
-[🔝 Back to eloquent](#eloquent)
+[🔝 Back to collect](#collect)
 ```
 
 [🔝 Back to collection](#collection)
