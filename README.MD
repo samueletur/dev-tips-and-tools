@@ -300,7 +300,7 @@ class EventServiceProvider extends ServiceProvider
 }
 ```
 
-[🔝 Back to collect](#collect)
+[🔝 Back to collection](#collection)
 
 ### **Arr Dot**
 
@@ -316,9 +316,6 @@ $arr  = [
 Arr::dot($arr);
 
 // rede_sociais.youtube: youtube.com
-```
-
-[🔝 Back to collect](#collect)
 ```
 
 [🔝 Back to collection](#collection)
