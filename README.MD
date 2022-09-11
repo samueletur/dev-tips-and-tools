@@ -34,6 +34,8 @@
 
 [Arr::join](#arr-join)
 
+[Arr::dot](#arr-dot)
+
 [Collection tips](#collection-tips)
 ## Eloquent
 
@@ -299,6 +301,27 @@ class EventServiceProvider extends ServiceProvider
 ```
 
 [🔝 Back to eloquent](#eloquent)
+
+### **Arr Dot**
+
+```php
+use illuminate\SupportArr;
+
+$arr  = [
+    'rede_sociais' => [
+        'youtube' => 'youtube.com'
+    ]
+];
+
+Arr::dot($arr);
+
+// rede_sociais.youtube: youtube.com
+```
+
+[🔝 Back to eloquent](#eloquent)
+```
+
+[🔝 Back to collection](#collection)
 
 ### **Arr Join**
 
