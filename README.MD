@@ -65,6 +65,8 @@
 
 [Relationships - Querying existence of relationships](#relationships-querying-existence) `#mysql` `#whereHas` `#has` `#relationship`
 
+[Relationships - Query filter](#relationships-query-filter)
+
 [Routing - Parameters regular expression constraint](#routing-parameters-regular-expression-constraint) `#route`
 
 [SelectRaw](#selectraw) `#mysql` `#selectRaw` `#query`
@@ -644,6 +646,26 @@ $posts = Post::whereDoesntHave('comments', function (Builder $qry) {
     $qry->where('content','like','code%');
 })->get();
 
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **Relationships - Query filter**
+
+If you need to filter a model by a nested relationship and are also eager load 
+both of the relationships you can create a closure that takes care of 
+the logic and pass it to both `with` and `whereHas`
+
+```php
+$filter = function ($query){
+    $query->where('year', now()->format('Y'));
+};
+
+// Get book from authors that have won awards this year
+// and eager load the authors and awards won this year 
+$authors = Book::with(['authors.awards' => $filter])
+    ->whereHas('authors.awards', $filter)
+    ->get();
 ```
 
 [🔝 Back to eloquent](#eloquent)
