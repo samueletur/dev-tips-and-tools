@@ -670,7 +670,6 @@ $authors = Book::with(['authors.awards' => $filter])
 
 [🔝 Back to eloquent](#eloquent)
 
-routing-parameters-regular-expression-constraint
 ### **Routing Parameters Regular Expression Constraint**
 
 ```php
