@@ -65,7 +65,7 @@
 
 [Relationships - Querying existence of relationships](#relationships-querying-existence) `#mysql` `#whereHas` `#has` `#relationship`
 
-[Relationships - Query filter](#relationships-query-filter)
+[Relationships - Query filter](#relationships---query-filter)
 
 [Routing - Parameters regular expression constraint](#routing-parameters-regular-expression-constraint) `#route`
 
