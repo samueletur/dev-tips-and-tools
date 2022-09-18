@@ -17,6 +17,9 @@
 [Delete billions of rows](#delete-billions-of-rows)
 
 [Set Timezone](#set-timezone)
+
+# NGROK
+[Ngrok Getting Started](#ngrok-getting-started)
 # PHP
 
 [isset](#isset)
@@ -94,7 +97,6 @@
 ## General
 
 [Namespaces](#namespaces)
-
 
 ## Logs
 [Query Log](#query-log)
@@ -235,6 +237,22 @@ if(isset($value,$value2,$value3))
 ```
 
 [🔝 Back to php](#php)
+
+### **ngrok getting started**
+
+Share development environment with others
+[Site](https://ngrok.com)
+```php
+// Install, configure and run ngrok
+// Download package and extract it
+// Mac users: mv ~/Downloads/ngrok /usr/local/bin
+// ngrok config add-authtoken <token>
+// Authtoken saved to configuration file: /Users/samueletur/Library/Application Support/ngrok/ngrok.yml
+// Publish your local web server to the internet
+// php artisan serve && ngrok http http://127.0.0.1:8000
+```
+
+[🔝 Back to ngok](#ngok)
 
 ### **helpers-checks-bugs**
 
