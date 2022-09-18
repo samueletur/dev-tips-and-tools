@@ -252,7 +252,7 @@ Share development environment with others
 // php artisan serve && ngrok http http://127.0.0.1:8000
 ```
 
-[🔝 Back to ngok](#ngok)
+[🔝 Back to ngrok](#ngrok)
 
 ### **helpers-checks-bugs**
 
