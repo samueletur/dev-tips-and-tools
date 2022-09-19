@@ -966,8 +966,6 @@ $books = Book::with([
 Add Values to the Form Request After Validation
 
 ```php
-
-// instead of
 class UpdateBookRequest extends FormRequest
 {
     public function validated()
