@@ -94,6 +94,10 @@
 
 [withCount](#withcount) #with #withCount
 
+## Form Request
+
+[Add Values to the form after validation](#add-values-to-the-form-after-validation)
+
 ## General
 
 [Namespaces](#namespaces)
@@ -956,6 +960,26 @@ $books = Book::with([
 ```
 
 [🔝 Back to eloquent](#eloquent)
+
+### **Add Values to the form after validation**
+
+Add Values to the Form Request After Validation
+
+```php
+
+// instead of
+class UpdateBookRequest extends FormRequest
+{
+    public function validated()
+    {
+        return array_merge(parent::validated(), [
+            'user_id' => Auth::user()->id,
+        ]);
+    }
+}
+```
+
+[🔝 Back to Form Request](#form-request)
 
 ### **Namespaces**
 
