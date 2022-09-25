@@ -8,6 +8,10 @@
 
 [Using Srcset](#using-srcset)
 
+# LIVEWIRE
+
+[Livewire Redirect](#livewire-redirect)
+
 # MAC
 
 [Create fake file size](#create-fake-file-size) 
@@ -206,6 +210,21 @@ git log --summary // View changes with details
 ```php
 // MacOs snippet to fake a 10MB PDF file
 mkfile 10m testfile.pdf
+```
+
+[🔝 Back to mac](#mac)
+
+### **Livewire Redirect**
+
+Tip: All (non-initial) Livewire requests store the original route in the Referer header.
+
+So even though Livewire doesn't support redirect()->back(), you can do this and it works perfectly.
+
+```php
+return redirect(request()->header('Referer'));
+```
+
+[🔝 Back to livewire](#livewire)
 ```
 
 [🔝 Back to mac](#mac)
