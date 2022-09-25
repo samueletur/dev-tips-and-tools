@@ -50,7 +50,7 @@
 
 [allRelatedIds](#allRelatedIds)
 
-[Cast Custom](#cast-custom)
+[Custom Casts](#custom-casts)
 
 [Composite Indexes](#composite-indexes)
 
