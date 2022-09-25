@@ -50,6 +50,8 @@
 
 [allRelatedIds](#allRelatedIds)
 
+[Cast Custom](#cast-custom)
+
 [Composite Indexes](#composite-indexes)
 
 [find](#find)
@@ -434,6 +436,39 @@ $article->tags()->pluck('id')->toArray();
 
 // you can use
 $article->tags()->allRelatedIds()->toArray();
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **Custom Casts**
+
+Tip: You can create custom casts to have Laravel automatically format your Eloquent model data. Here's an example that capitalises a user's name when it is retrieved or changed.
+
+```php
+namespace App\Casts;
+
+use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
+
+class CapitalizeWordsCast implements CastsAttributes
+{
+    public function get($model, $key, $value, $attributes)
+    {
+        return ucwords($value);
+    }
+
+    public function set($model, $key, $value, $attributes)
+    {
+        return ucwords($value);
+    }
+}
+
+class User extends Model 
+{
+    protected $casts = [
+        'name' => CapitalizeWordsCast::class,
+        'email' => 'string',
+    ];
+}
 ```
 
 [🔝 Back to eloquent](#eloquent)
