@@ -625,7 +625,6 @@ $related = Article::where('tag','PHP')->inRandomOrder()->limit(5)->get();
 ```
 
 
-
 [🔝 Back to eloquent](#eloquent)
 
 ### **Relationship - Default**
