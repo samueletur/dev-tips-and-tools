@@ -64,6 +64,8 @@
 
 [Query Casting](#query-casting)
 
+[Random Order](#random-order)
+
 [Relationships - Default](#relationship-default)
 
 [Relationships - Querying existence of relationships](#relationships-querying-existence) `#mysql` `#whereHas` `#has` `#relationship`
@@ -604,6 +606,25 @@ $users = User::select([
     'last_posted_at' => 'datetime',
 ])->get();
 ```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **Random Order**
+
+Eloquent has an ‘inRandomOrder()’ method, which is useful for mixing up content or for showing related but different content e.g. blog posts. However, it is VERY SLOW on large tables. Fortunately, we can easily fix it by replacing it with a ‘whereRaw’ filter.
+
+```php
+
+$related = Article::where('tag','PHP')
+    ->whereRaw('`articles`.`id` >= FLOOR(1 + RAND() * (SELECT MAX(`id`) FROM `articles`))')
+    ->limit(3)
+    ->get();
+
+// Instead of this
+$related = Article::where('tag','PHP')->inRandomOrder()->limit(5)->get();
+```
+
+
 
 [🔝 Back to eloquent](#eloquent)
 
