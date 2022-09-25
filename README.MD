@@ -66,6 +66,8 @@
 
 [Lazy Loading](#lazi-loading)
 
+[Model Keys](#model-keys)
+
 [Push](#push)
 
 [Query Casting](#query-casting)
@@ -616,7 +618,23 @@ $user->isClean(); // true
 
 [🔝 Back to eloquent](#eloquent)
 
-### **Lazi-Loading**
+### **Model-Keys**
+
+If you need to get an array of ID's from eloquent collection, you would probabally use combination of pluck() and toArray(). You can simplify it by using modelKeys() method
+
+```php
+// instead of
+Vendor::all()->pluck('id')->toArray();
+// you can use
+Vendor::all()->modelKeys();
+```
+
+[🔝 Back to eloquent](#eloquent)
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **Lazy-Loading**
 
 Dealing with N+1 queries is probably one of the most common sources of performance issues. Since Laravel 8, you can entirely turn off lazy loading. This means if a relationship is not eager loaded, and you try to access it, Laravel will throw an exception in your face!
 
