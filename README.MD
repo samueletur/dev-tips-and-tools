@@ -756,6 +756,12 @@ $posts = Post::whereRelation(
     'comments', 'created_at', '>=', now()->subHour()
 )->get();
 
+// Instead of a join
+$apple = Holding::select('holdings.*')->leftJoin('stocks', 'stocks.id', 'holdings.stock_id')->where('stocks.ticker', 'AAPL')->get();
+
+// You can do this
+$apple = Holding::whereRelation('stock', 'ticker', 'AAPL')->get();
+
 // Querying a relationship absense
 $posts = Post::doesntHave('comments')->get();
 $posts = Post::whereDoesntHave('comments', function (Builder $qry) {
