@@ -82,6 +82,8 @@
 
 [Routing - Parameters regular expression constraint](#routing-parameters-regular-expression-constraint) `#route`
 
+[Routing - Global route pattern](#routing-global-route-pattern) `#route`
+
 [SelectRaw](#selectraw) `#mysql` `#selectRaw` `#query`
 
 [Sensitive Data](#sensitive-data) `#crypt` `#cast` `#attribute`
@@ -807,6 +809,25 @@ Route::get('posts/{id}/{post}', function() {
 Route::get('/user/{id}/{name}', function ($id, $name) {
     //
 })->whereNumber('id')->whereAlpha('name');    
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **Routing Global route pattern**
+
+```php
+// instead of
+Route::get('customers/{id}', [CustommerController::class, 'show'])->where('id', '[0-9]+');
+Route::get('vendors/{slug}', [VendorController::class, 'show'])->where('slug', '[a-z0-9-]+');
+
+// you can do
+// You can define these patterns in boot method of RouteServiceProvider
+
+public function boot()
+{
+    Route::pattern('id', '[0-9]+');
+    Route::slug('id', '[0-9]+');
+}
 ```
 
 [🔝 Back to eloquent](#eloquent)
