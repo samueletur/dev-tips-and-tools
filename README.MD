@@ -80,6 +80,8 @@
 
 [Relationships - Query filter](#relationships---query-filter)
 
+[Relationships - Eager loading](#relationships---eager-loading)
+
 [Routing - Parameters regular expression constraint](#routing-parameters-regular-expression-constraint) `#route`
 
 [Routing - Global route pattern](#routing-global-route-pattern) `#route`
@@ -792,6 +794,24 @@ $filter = function ($query){
 $authors = Book::with(['authors.awards' => $filter])
     ->whereHas('authors.awards', $filter)
     ->get();
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **Relationships - Eager Loading**
+
+```php
+class ListingController {
+    public function index() {
+        return view('listings.index',[
+            'listings' => Listing::with('images')->paginate(20)
+        ]);
+    }
+}
+
+Listing::with([
+    'images'=> fn($query) => $query->where('type', 'primary'),
+]);
 ```
 
 [🔝 Back to eloquent](#eloquent)
