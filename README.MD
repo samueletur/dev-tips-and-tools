@@ -143,6 +143,10 @@
 
 [Cheatsheet](#storage-cheatsheet)
 
+## URL
+
+[Url Facade](#url-facade)
+
 ### **Git commands**  
 
 ```php
@@ -1341,6 +1345,23 @@ Storage::files($directory = null, $recursive = false);
 ```
 
 [🔝 Back to storage](#storage)
+
+### **Url Facade**
+
+```php
+Use Illuminate\Support\Facades\URL;
+
+// example.com
+'https://dominioprincipal.com.br/user/admin?foo=bar'
+
+URL::current(); => 'https://dominioprincipal.com.br/user/admin'
+
+URL::full(); => 'https://dominioprincipal.com.br/user/admin?foo=bar'
+
+URL::previous(); => 'https://dominioprincipal.com.br'
+```
+
+[🔝 Back to storage](#url)
 
 # PHP
 
