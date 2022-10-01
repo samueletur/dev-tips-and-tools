@@ -800,6 +800,10 @@ $authors = Book::with(['authors.awards' => $filter])
 
 ### **Relationships - Eager Loading**
 
+Eager loading model relationships is way more efficient, however if used blindly, 
+it can result in the fetching of data that you don’t actually need. 
+To help avoid this problem, consider adding a constraint to the query
+
 ```php
 class ListingController {
     public function index() {
