@@ -90,6 +90,8 @@
 
 [Sensitive Data](#sensitive-data) `#crypt` `#cast` `#attribute`
 
+[Value](#value)
+
 [wasChanged](#wasChanged)
 
 [when for conditionally situations](#when-for-conditionally-situations) `#when`
@@ -907,6 +909,22 @@ class Client extends Model
         );
     }
 }
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **Value**
+
+There is a 'value' method on the Query Builder which can make your code a lot shorter.
+
+```php
+User::where('type',UserTypeEnum::ADMIN)
+    ->select('name')
+    ->first()
+    ->name;
+
+User::where('type',UserTypeEnum::ADMIN)
+    ->value('name');
 ```
 
 [🔝 Back to eloquent](#eloquent)
