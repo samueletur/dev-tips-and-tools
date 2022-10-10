@@ -2,6 +2,8 @@
 
 [Git commands and their explanations](#git-commands)
 
+[Git clone specific branch](#git-clone-specific-branch)
+
 # Images
 
 [Using Picture](#using-picture)
@@ -180,6 +182,14 @@ git remote add origin URL // Add a remote repository
 git branch -m old_branch_name new_branch_name
 git checkout -  // Switch to the branch last checked out
 git log --summary // View changes with details
+```
+
+[🔝 Back to git](#git)
+
+### **Git clone specific branch**  
+
+```php
+ git clone -b <branch> git@github.com:BolajiAyodeji/nextjs-blog.git <directory>
 ```
 
 [🔝 Back to git](#git)
