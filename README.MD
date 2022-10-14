@@ -1394,6 +1394,11 @@ Storage::lastModified($path);
 
 // Get an array of all files in a directory
 Storage::files($directory = null, $recursive = false);
+
+// Store a image
+$request->file('image')->store('images');
+$request->file('photo')->storeAs('images', 'filename.jpg');
+
 ```
 
 [🔝 Back to storage](#storage)
