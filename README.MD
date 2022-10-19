@@ -56,6 +56,8 @@
 
 [Composite Indexes](#composite-indexes)
 
+[CreateOnlyQuietly](#createOnlyQuietly)
+
 [find](#find)
 
 [GroupBy](#groupby)
@@ -519,6 +521,21 @@ class CreateInvitationsTable extends Migration {
         $table->index(['organization_id','vacancy_id','user_id']);
     });
 }
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **CreateOnlyQuietly**
+
+```php
+Post::factory()->createOneQuietly();
+
+Post::factory()->count(3)->createQuietly();
+
+Post::factory()->createManyQuietly([
+    ['message' => 'A new comment'],
+    ['message' => 'Another new comment'],
+]);
 ```
 
 [🔝 Back to eloquent](#eloquent)
