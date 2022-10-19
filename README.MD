@@ -92,6 +92,8 @@
 
 [Sensitive Data](#sensitive-data) `#crypt` `#cast` `#attribute`
 
+[UpdateQuietly](#updatequietly)
+
 [Value](#value)
 
 [wasChanged](#wasChanged)
@@ -919,6 +921,14 @@ class Client extends Model
         );
     }
 }
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **UpdateQuietly**
+
+```php
+$flight->updateQuietly(['departed' => false]);
 ```
 
 [🔝 Back to eloquent](#eloquent)
