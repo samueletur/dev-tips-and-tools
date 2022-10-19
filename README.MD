@@ -98,6 +98,8 @@
 
 [Value](#value)
 
+[valueOrFail](#valueOrFail)
+
 [wasChanged](#wasChanged)
 
 [when for conditionally situations](#when-for-conditionally-situations) `#when`
@@ -966,6 +968,17 @@ User::where('type',UserTypeEnum::ADMIN)
 
 [🔝 Back to eloquent](#eloquent)
 
+### **valueOrFail**
+
+```php
+// Before:
+$votes = User::where('name', 'John')->firstOrFail('votes')->votes;
+// Now:
+$votes = User::where('name', 'John')->valueOrFail('votes');
+```
+
+[🔝 Back to eloquent](#eloquent)
+
 ### **wasChanged**
 
 ```php
@@ -1015,6 +1028,12 @@ return $query->get();
 Get relationship without use where on query
 
 ```php
+// instead of
+$posts = Post::where('user_id', $user->id)->get();
+
+// you can use
+$posts = Post::whereBelongsTo($user)->get();
+
 // instead of
 Order::where('user_id',$user->id)->sum('total_amount');
 
