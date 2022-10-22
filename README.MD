@@ -46,6 +46,7 @@
 [Arr::join](#arr-join)
 
 [Collection tips](#collection-tips)
+
 ## Eloquent
 
 [after](#after)
@@ -138,7 +139,9 @@
 
 [Str Plural](#str-plural)
 
-[Config values on the fly](#config-values-on-the-fly)
+[Config values on the fly](#config-values-on-the-fly) 
+
+[Benchmark](#benchmark)
 
 ## Route
 
@@ -1283,6 +1286,19 @@ composer require laravel/pint --dev
 use Illuminate\Support\Facades\Config;
 
 Config::set('app.allowed_mail_domains', ['example.com']);
+```
+
+[🔝 Back to Misc](#misc)
+
+### **Benchmark**(#benchmark)
+
+```php
+    use Illuminate\Support\Benchmark;
+
+    Benchmark::dd([
+        'scenario 1' => fn () => User::all()->count(),
+        'scenario 1' => fn () => User::count(),
+    ]);
 ```
 
 [🔝 Back to Misc](#misc)
