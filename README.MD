@@ -166,6 +166,40 @@
 
 [Url Facade](#url-facade)
 
+### **Spatie Flags**   
+```php
+namespace App\Console\Commands;
+
+use App\Models\User;
+use App\Mails\ExtraMail;
+use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Mail;
+
+class SendExtraMailCommand extends Command
+{
+    protected $signature = 'send-extra-mail';
+
+    protected $description = 'Send extra mail to all users';
+
+    public function handle()
+    {
+        $this->info('Sending extra mail to all users...');
+
+        User::notFlagged('hasReceivedExtraMail')
+            ->each(function (User $user) {
+                $this->comment("Sending mail to {$user->email}");
+
+                Mail::to($user->email)->queue(new ExtraMail());
+
+                $user->flag('hasReceivedExtraMail');
+            });
+
+        $this->info('All done!');
+    }
+}
+```
+
+
 ### **Git commands**  
 
 ```php
