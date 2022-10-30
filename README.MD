@@ -1375,13 +1375,15 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class ForgotLocaleParameter{
+class ForgetLocaleParameter{
+
     public function handle(Request $request, Closure $next)
     {
         $request->route()->forgetParameter('locale');
 
         return $next($request);
     }
+    
 }
 ```
 
