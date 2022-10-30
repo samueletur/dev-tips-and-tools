@@ -149,6 +149,8 @@
 
 ## Route
 
+[Forgot route parameter](#forgot-route-parameter)
+
 [Generate csv from route list](#generate-csv-from-route-list)
 
 [URI fragment](#uri-fragment)
@@ -1365,22 +1367,22 @@ Str::macro(
 
 [🔝 Back to Misc](#misc)
 
-### **Generate csv from route list**
+### **Forgot route parameter**
 
 ```php
-Route::get('r', function()
-{
-    header('Content-Type: application/excel');
-    header('Content-Disposition: attachment; filename="routes.csv"');
+namespace App\Http\Middleware;
 
-    $routes = Route::getRoutes();
-    $fp = fopen('php://output', 'w');
-    fputcsv($fp, ['METHOD', 'URI', 'NAME', 'ACTION']);
-    foreach ($routes as $route) {
-        fputcsv($fp, [head($route->methods()) , $route->uri(), $route->getName(), $route->getActionName()]);
+use Closure;
+use Illuminate\Http\Request;
+
+class ForgotLocaleParameter{
+    public function handle(Request $request, Closure $next)
+    {
+        $request->route()->forgetParameter('locale');
+
+        return $next($request);
     }
-    fclose($fp);
-});
+}
 ```
 
 [🔝 Back to Route](#route)
