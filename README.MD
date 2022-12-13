@@ -210,6 +210,7 @@ git clone <url> // Used to clone the repository from remote
 git add <file-name> // Add a file in to the staging
 git add . // Add all files in the staging 
 git add -A  // Add new files to the staging
+git add -p // Add a part of the file to the staging
 git cherry-pick commit_id // Pick a commit from another branch
 git commit -m "message" // Commit the changes
 git rm -r file.html // Removes a file
@@ -226,6 +227,7 @@ git branch -d branch_name // Delete a branch
 git checkout branch_name // Switch to a branch
 git checkout -b branch_name // Create a new branch with the given name and immediately switch to it
 git checkout -- file.html // Discard changes from a file
+git rebase -i HEAD~2 // Rebase the last 2 commits
 git stash // Stash the changes
 git stash clear // Discard all the stashes
 git remote add origin URL // Add a remote repository
