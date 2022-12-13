@@ -210,6 +210,7 @@ git clone <url> // Used to clone the repository from remote
 git add <file-name> // Add a file in to the staging
 git add . // Add all files in the staging 
 git add -A  // Add new files to the staging
+git cherry-pick commit_id // Pick a commit from another branch
 git commit -m "message" // Commit the changes
 git rm -r file.html // Removes a file
 git branch // lists are the branches
