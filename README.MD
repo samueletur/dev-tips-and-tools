@@ -1163,9 +1163,6 @@ Post::whereIn('user_id', User::select('id')->where('promoted',true))->get();
 ```
 
 [🔝 Back to eloquent](#eloquent)
-```
-
-[🔝 Back to eloquent](#eloquent)
 
 ### **withaggregate**
 
