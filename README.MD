@@ -1167,7 +1167,7 @@ Post::whereIn('user_id', User::select('id')->where('promoted',true))->get();
 
 [🔝 Back to eloquent](#eloquent)
 
-### **withAggregate**
+### **withaggregate**
 
 ```php
 // Access user's name using ->user->name
