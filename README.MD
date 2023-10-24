@@ -121,6 +121,8 @@
 
 [with - cheatsheet](#with---cheat-sheet) #with #without
 
+[withAggregate](#withaggregate) #withaggregate
+
 [withCount](#withcount) #with #withCount
 
 ## Form Request
@@ -1161,6 +1163,21 @@ Post::whereIn('user_id', User::select('id')->where('promoted',true))->get();
 ```
 
 [🔝 Back to eloquent](#eloquent)
+```
+
+[🔝 Back to eloquent](#eloquent)
+
+### **withAggregate**
+
+```php
+// Access user's name using ->user->name
+$post = Post::withAggregate('user','name')->take(3)->get();
+
+// SQL query
+// select posts.*, (select name from users where posts.user_id = users.id limit 1) as user_name from posts limit 3
+
+// You can access the comment using
+$posts->first()->user_name;
 ```
 
 [🔝 Back to eloquent](#eloquent)
