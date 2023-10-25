@@ -161,6 +161,9 @@
 
 [Resources Group](#resources-group)
 
+## Security
+
+[Hide Sensitive Parameters from Stack Traces](#hide-sensitive-parameters-from-stack-traces)
 
 ## Storage
 
@@ -1465,6 +1468,41 @@ Route::resources([
 
 [🔝 Back to route](#route)
 
+### **Hide Sensitive Parameters from Stack Traces**
+
+```php
+    // Reference: https://securinglaravel.com/p/security-tip-hide-sensitive-parameters
+    If you do need parameters included in your stack traces, then PHP 8.2 introduces a new attribute: `#[\SensitiveParameter]`
+
+    function authorise(
+    string $username, 
+    #[\SensitiveParameter] string $password
+) {
+    throw new Exception("Error!");
+}
+
+authorise('Gandalf', 'mellon');
+
+And then run the code:
+
+$ php /tmp/example.php
+PHP Fatal error:  Uncaught Exception: Error! in /tmp/example.php:5
+Stack trace:
+#0 /tmp/example.php(8): authorise('Gandalf', Object(SensitiveParameterValue))
+#1 {main}
+  thrown in /tmp/example.php on line 5
+
+OR IN php.ini
+
+; Allows to include or exclude arguments from stack traces generated for exceptions.
+; In production, it is recommended to turn this setting on to prohibit the output
+; of sensitive information in stack traces
+; Default Value: Off
+; Development Value: Off
+; Production Value: On
+zend.exception_ignore_args = On
+
+```
 ### **Storage Cheatsheet**
 
 ```php
